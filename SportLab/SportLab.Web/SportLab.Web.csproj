@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="12.2.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -24,6 +25,10 @@
     <ProjectReference Include="..\SportLab.Data\SportLab.Data.csproj" />
     <ProjectReference Include="..\SportLab.Services\SportLab.Services.csproj" />
     <ProjectReference Include="..\SportLab.ViewModel\SportLab.ViewModel.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Csv\" />
   </ItemGroup>
 
 </Project>

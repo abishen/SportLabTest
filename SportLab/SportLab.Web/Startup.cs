@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using SportLab.Data;
 using SportLab.Repository;
 using SportLab.Services;
+using SportLab.Web.Models;
 
 namespace SportLab.Web
 {
@@ -60,6 +61,15 @@ namespace SportLab.Web
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            {
+                var context = serviceScope.ServiceProvider.GetRequiredService<SportLabContext>();
+                context.Database.EnsureCreated();
+
+                var services = serviceScope.ServiceProvider;
+                SeedData.Initialize(services);
+            }
         }
     }
 }
